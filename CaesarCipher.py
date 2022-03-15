@@ -1,13 +1,12 @@
-#Caesar Cipher
 # Python3.6  
 # Coding: utf-8  
-# Store the human preproinsulin sequence in a variable called preproinsulin: 
-
-alphabet="ABC"
+# Implements Ceasar Cipher algorith
 
 def getDoubleAlphabet(alphabet):
     doubleAlphabet = alphabet + alphabet
     return doubleAlphabet
+
+#print (getDoubleAlphabet(alphabet))
 
 def getMessage():
     stringToEncrypt = input("Please enter a message to encrypt: ")
@@ -24,6 +23,7 @@ def encryptMessage(message, cipherKey, alphabet):
     for currentCharacter in uppercaseMessage:
         position = alphabet.find(currentCharacter)
         newPosition = position + int(cipherKey)
+        print ("Position is {}, New Position is {}".format(position,newPosition))
         if currentCharacter in alphabet:
             encryptedMessage = encryptedMessage + alphabet[newPosition]
         else:
@@ -36,11 +36,8 @@ def decryptMessage(message, cipherKey, alphabet):
     
 def runCaesarCipherProgram():
     myAlphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    print(f'Alphabet: {myAlphabet}')
     myAlphabet2 = getDoubleAlphabet(myAlphabet)
-    print(f'Alphabet2: {myAlphabet2}')
     myMessage = getMessage()
-    print(myMessage)
     myCipherKey = getCipherKey()
     print(myCipherKey)
     myEncryptedMessage = encryptMessage(myMessage, myCipherKey, myAlphabet2)
@@ -49,4 +46,4 @@ def runCaesarCipherProgram():
     print(f'Decypted Message: {myDecryptedMessage}')
     
 runCaesarCipherProgram()
-   
+    
